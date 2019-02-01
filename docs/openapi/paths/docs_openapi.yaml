@@ -1,0 +1,11 @@
+get:
+  security: []
+  tags: []
+  description: |
+    Retrieve the openapi documentation for the API.
+  operationId: docs_openapi_get
+  parameters: []
+  responses:
+    '200':
+      description: |
+        OK.

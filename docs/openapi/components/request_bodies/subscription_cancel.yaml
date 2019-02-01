@@ -1,0 +1,9 @@
+description: |
+  Subscription cancellation request body.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/subscription_cancel.yaml'
+    example:
+      $ref: '../examples/subscription_cancel.yaml'
+required: true

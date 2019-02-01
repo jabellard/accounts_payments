@@ -1,0 +1,4 @@
+description: |
+  Subscription patch object example.
+value:
+  plan_id: 0

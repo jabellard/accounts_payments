@@ -1,0 +1,8 @@
+name: email_verification_key
+in: path
+required: true
+description: |
+  Email verification key.
+schema:
+  type: string
+style: simple

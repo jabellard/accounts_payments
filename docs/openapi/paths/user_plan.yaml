@@ -1,0 +1,10 @@
+get:
+  tags: []
+  description: |
+    Return the specified plan.
+  operationId: user_plan_detail_get
+  parameters:
+    - $ref: '#/components/parameters/plan_id_p'
+  responses:
+    '200':
+      $ref: '#/components/responses/plan'

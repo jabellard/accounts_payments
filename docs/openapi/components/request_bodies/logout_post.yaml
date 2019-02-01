@@ -1,0 +1,9 @@
+description: |
+  Logout.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/logout.yaml'
+    example:
+      $ref: '../examples/logout.yaml'
+required: true

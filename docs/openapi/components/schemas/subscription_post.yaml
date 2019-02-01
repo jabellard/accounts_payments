@@ -1,0 +1,12 @@
+title: Subscription post object.
+description: |
+  Subscription post object.
+type: object
+properties:
+  plan_id:
+    description: |
+      The plan to create the subscription for, by ID. See Stripe API docs.
+    type: integer
+    format: int64
+required:
+  - plan_id

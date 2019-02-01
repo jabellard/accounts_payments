@@ -1,0 +1,5 @@
+title: Subscription cancel object.
+description: |
+  Subscription cancel object.
+type: object
+properties: {}

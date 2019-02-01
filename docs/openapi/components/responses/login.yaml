@@ -1,0 +1,8 @@
+description: |
+  Returned authentication token.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/login_res.yaml'
+    example:
+      $ref: '../examples/login_res.yaml'

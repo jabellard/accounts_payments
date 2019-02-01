@@ -1,0 +1,6 @@
+description: |
+  User patch object example.
+value:
+  first_name: ''
+  last_name: ''
+  profile_picture: ''

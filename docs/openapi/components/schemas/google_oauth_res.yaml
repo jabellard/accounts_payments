@@ -1,0 +1,9 @@
+title: Google oauth response object.
+description: |
+  Google oauth response object.
+type: object
+properties:
+  key:
+    description: |
+      Token key.
+    type: string

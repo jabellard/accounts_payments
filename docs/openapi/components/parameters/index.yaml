@@ -1,0 +1,16 @@
+email_verification_key_p:
+  $ref: './email_verification_key_p.yaml'
+plan_id_p:
+  $ref: './plan_id_p.yaml'
+subscription_id_p:
+  $ref: './subscription_id_p.yaml'
+card_id_p:
+  $ref: './card_id_p.yaml'
+page_q:
+  $ref: './page_q.yaml'
+filters_q:
+  $ref: './filters_q.yaml'
+period_q:
+  $ref: './period_q.yaml'
+multiplier_q:
+  $ref: './multiplier_q.yaml'

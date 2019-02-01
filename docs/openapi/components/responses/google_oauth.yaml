@@ -1,0 +1,8 @@
+description: |
+  Returned authentication token.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/google_oauth_res.yaml'
+    example:
+      $ref: '../examples/google_oauth_res.yaml'

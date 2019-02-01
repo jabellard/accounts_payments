@@ -1,0 +1,11 @@
+title: Authentication token object.
+description: |
+  Authentication token object.
+type: object
+properties:
+  key:
+    description: |
+      Token key.
+    type: string
+required:
+  - key

@@ -1,0 +1,13 @@
+post:
+  security: []
+  tags: []
+  description: |
+    Verify the email for a user account.
+  operationId: account_verify_email_post
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/email_verification_key_post'
+  responses:
+    '200':
+      description: |
+            OK.

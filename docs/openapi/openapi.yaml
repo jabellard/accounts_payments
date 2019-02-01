@@ -1,0 +1,2827 @@
+openapi: 3.0.0
+info:
+  title: textbin API
+  description: textbin API.
+  termsOfService: 'https://empty.com/terms_of_service'
+  contact:
+    name: Joe Nathan Abellard
+  version: 0.0.0
+servers:
+  - description: |
+      Production server.
+    url: 'https://empty.com/api/'
+paths:
+  /accounts/register:
+    post:
+      security: []
+      tags: []
+      description: |
+        Register for a new user account.
+      operationId: account_register_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/registration_info_post'
+      responses:
+        '200':
+          description: |
+            OK.
+  /accounts/oauth/google:
+    post:
+      security: []
+      tags: []
+      description: |
+        Register or login via Google Oauth
+      operationId: oauth_google_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/google_oauth_post'
+      responses:
+        '200':
+          $ref: '#/components/responses/google_oauth'
+  /accounts/register/verify_email:
+    post:
+      security: []
+      tags: []
+      description: |
+        Verify the email for a user account.
+      operationId: account_verify_email_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/email_verification_key_post'
+      responses:
+        '200':
+          description: |
+            OK.
+  /accounts/login:
+    post:
+      security: []
+      tags: []
+      description: |
+        Login with the provided user credentials.
+      operationId: account_login_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/login_post'
+      responses:
+        '200':
+          $ref: '#/components/responses/login'
+  /accounts/logout:
+    post:
+      security: []
+      tags: []
+      description: |
+        Logout the authenticated user.
+      operationId: account_logout_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/logout_post'
+      responses:
+        '200':
+          $ref: '#/components/responses/login'
+  /accounts/password/reset:
+    post:
+      security: []
+      tags: []
+      description: |
+        Start the password reset process for the specified user.
+      operationId: account_password_reset_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/password_reset_info_post'
+      responses:
+        '200':
+          description: |
+            OK.
+  /accounts/password/change:
+    post:
+      tags: []
+      description: |
+        Change the password for the authenticated user.
+      operationId: account_password_change_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/password_change_info_post'
+      responses:
+        '200':
+          description: |
+            OK.
+  /accounts/password/reset/confirm:
+    post:
+      security: []
+      tags: []
+      description: |
+        Reset the password for the specified user.
+      operationId: account_password_reset_confirm_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/password_reset_confirm_info_post'
+      responses:
+        '200':
+          description: |
+            OK.
+  /accounts/current_user:
+    get:
+      tags: []
+      description: |
+        Return account info for the authenticated user.
+      operationId: user_detail_get
+      parameters: []
+      responses:
+        '200':
+          $ref: '#/components/responses/user'
+    patch:
+      tags: []
+      description: |
+        Update account info for the authenticated user.
+      operationId: user_detail_patch
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/user_patch'
+      responses:
+        '200':
+          $ref: '#/components/responses/user'
+    delete:
+      tags: []
+      description: |
+        Delete the authenticated user's account.
+      operationId: user_detail_delete
+      parameters: []
+      responses:
+        '204':
+          description: |
+            No content.
+  /accounts/current_user/membership/subscriptions:
+    get:
+      tags: []
+      description: |
+        Return all subscriptions for the authenticated user.
+      operationId: user_subscription_list_get
+      parameters:
+        - $ref: '#/components/parameters/page_q'
+      responses:
+        '200':
+          $ref: '#/components/responses/subscriptions'
+    post:
+      tags: []
+      description: |
+        Create a subscription for the authenticated user.
+      operationId: user_subscription_list_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/subscription_post'
+      responses:
+        '200':
+          $ref: '#/components/responses/subscription'
+  '/accounts/current_user/membership/subscriptions/{subscription_id}':
+    get:
+      tags: []
+      description: |
+        Return the specified subscription.
+      operationId: user_subscription_get
+      parameters:
+        - $ref: '#/components/parameters/subscription_id_p'
+      responses:
+        '200':
+          $ref: '#/components/responses/subscription'
+    patch:
+      tags: []
+      description: |
+        Update the specified subscription.
+      operationId: user_subscription_patch
+      parameters:
+        - $ref: '#/components/parameters/subscription_id_p'
+      requestBody:
+        $ref: '#/components/requestBodies/subscription_patch'
+      responses:
+        '200':
+          $ref: '#/components/responses/subscription'
+  '/accounts/current_user/membership/subscriptions/{subscription_id}/cancel':
+    patch:
+      tags: []
+      description: |
+        Cancel the specified subscription for the authenticated user.
+      operationId: user_subscription_cancel
+      parameters:
+        - $ref: '#/components/parameters/subscription_id_p'
+      requestBody:
+        $ref: '#/components/requestBodies/subscription_cancel'
+      responses:
+        '200':
+          $ref: '#/components/responses/subscription'
+  /accounts/current_user/membership/plans:
+    get:
+      tags: []
+      description: |
+        Return all available plans.
+      operationId: user_plan_list_get
+      parameters:
+        - $ref: '#/components/parameters/page_q'
+      responses:
+        '200':
+          $ref: '#/components/responses/plans'
+  '/accounts/current_user/membership/plans/{plan_id}':
+    get:
+      tags: []
+      description: |
+        Return the specified plan.
+      operationId: user_plan_detail_get
+      parameters:
+        - $ref: '#/components/parameters/plan_id_p'
+      responses:
+        '200':
+          $ref: '#/components/responses/plan'
+  /accounts/current_user/membership/cards:
+    get:
+      tags: []
+      description: |
+        Return all cards for the authenticated user.
+      operationId: user_card_list_get
+      parameters:
+        - $ref: '#/components/parameters/page_q'
+      responses:
+        '200':
+          $ref: '#/components/responses/cards'
+    post:
+      tags: []
+      description: |
+        Create a card for the authenticated user.
+      operationId: user_card_list_post
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/card_post'
+      responses:
+        '200':
+          $ref: '#/components/responses/card'
+  '/accounts/current_user/membership/cards/{card_id}':
+    get:
+      tags: []
+      description: |
+        Return the specified card.
+      operationId: user_card_detail_get
+      parameters:
+        - $ref: '#/components/parameters/card_id_p'
+      responses:
+        '200':
+          $ref: '#/components/responses/card'
+    patch:
+      tags: []
+      description: |
+        Update the specified card.
+      operationId: user_card_detail_patch
+      parameters:
+        - $ref: '#/components/parameters/card_id_p'
+      requestBody:
+        $ref: '#/components/requestBodies/card_patch'
+      responses:
+        '200':
+          $ref: '#/components/responses/card'
+    delete:
+      tags: []
+      description: |
+        Delete the specified card.
+      operationId: user_card_detail_delete
+      parameters:
+        - $ref: '#/components/parameters/card_id_p'
+      responses:
+        '204':
+          description: |
+            No content.
+  /docs/coreapi:
+    get:
+      security: []
+      tags: []
+      description: |
+        Retrieve the coreapi interactive documentation for the API.
+      operationId: docs_coreapi_get
+      parameters: []
+      responses:
+        '200':
+          description: |
+            OK.
+  /docs/openapi:
+    get:
+      security: []
+      tags: []
+      description: |
+        Retrieve the openapi documentation for the API.
+      operationId: docs_openapi_get
+      parameters: []
+      responses:
+        '200':
+          description: |
+            OK.
+components:
+  schemas:
+    user:
+      title: User object.
+      description: |
+        User object.
+      type: object
+      properties:
+        user_id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        email:
+          description: |
+            Email address.
+          type: string
+          format: email
+        password:
+          description: |
+            Password.
+          type: string
+          format: string
+        first_name:
+          description: |
+            First name.
+          type: string
+        last_name:
+          description: |
+            Last name.
+          type: string
+        profile_picture:
+          description: |
+            Profile picture.
+          type: string
+          format: url
+        date_joined:
+          description: |
+            Date the user signed up.
+          type: string
+          format: date
+        is_active:
+          description: |
+            Specifies if the user's account  is active.
+          type: boolean
+        is_staff:
+          description: |
+            Specifies if the user has staff credentials.
+          type: boolean
+        is_superuser:
+          description: |
+            Specifies if the user has superuser credentials.
+          type: boolean
+        last_login:
+          description: |
+            The last time the user logged in.
+          type: string
+          format: date-time
+      required:
+        - email
+    subscription:
+      title: Subscription object.
+      description: |
+        Subscription object.
+      type: object
+      properties:
+        id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        application_fee_percent:
+          description: |
+            See Stripe API docs.
+          type: number
+          format: double
+        cancel_at_period_end:
+          description: |
+            See Stripe API docs.
+          type: boolean
+        canceled_at:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        current_period_end:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: email
+        current_period_start:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        ended_at:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        plan:
+          description: |
+            Plan, by ID. See Stripe API docs.
+          type: integer
+          format: int64
+        quantity:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        start:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        status:
+          description: |
+            See Stripe API docs.
+          type: string
+        trial_end:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        trial_start:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+    card:
+      title: Card object.
+      description: |
+        Card object.
+      type: object
+      properties:
+        id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        name:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_line_1:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_line_2:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_city:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_state:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_country:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_zip:
+          description: |
+            Plan, by ID. See Stripe API docs.
+          type: string
+        brand:
+          description: |
+            See Stripe API docs.
+          type: string
+        country:
+          description: |
+            See Stripe API docs.
+          type: string
+        exp_month:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        exp_year:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        last4:
+          description: |
+            See Stripe API docs.
+          type: string
+    registration_info:
+      title: Registration info object.
+      description: |
+        Registration info object.
+      type: object
+      properties:
+        email:
+          description: |
+            Email.
+          type: string
+          format: email
+        password1:
+          description: |
+            Password.
+          type: string
+        password2:
+          description: |
+            Password confirmation.
+          type: string
+      required:
+        - email
+        - password1
+        - password2
+    password_reset_info:
+      title: Password reset info object.
+      description: |
+        Password reset info object.
+      type: object
+      properties:
+        email:
+          description: |
+            Email.
+          type: string
+          format: email
+      required:
+        - email
+    password_change_info:
+      title: Password change info object.
+      description: |
+        Password change info object.
+      type: object
+      properties:
+        old_password:
+          description: |
+            Old password.
+          type: string
+        new_password1:
+          description: |
+            New password.
+          type: string
+        new_password2:
+          description: |
+            New password confirm.
+          type: string
+      required:
+        - old_password
+        - new_password1
+        - new_password2
+    password_reset_confirm_info:
+      title: Password reset confirmation info object.
+      description: |
+        Password reset confirmation info object.
+      type: object
+      properties:
+        password1:
+          description: |
+            New password.
+          type: string
+        password2:
+          description: |
+            New password confirmation.
+          type: string
+        uid:
+          description: |
+            UID.
+          type: string
+        token:
+          description: |
+            Token.
+          type: string
+      required:
+        - password1
+        - password2
+        - uid
+        - token
+    email_verification_key:
+      title: Email verification key object.
+      description: |
+        Email verification key object.
+      type: object
+      properties:
+        key:
+          description: |
+            Verification key.
+          type: string
+      required:
+        - key
+    auth_token:
+      title: Authentication token object.
+      description: |
+        Authentication token object.
+      type: object
+      properties:
+        key:
+          description: |
+            Token key.
+          type: string
+      required:
+        - key
+    login:
+      title: Login object.
+      description: |
+        Login object.
+      type: object
+      properties:
+        email:
+          description: |
+            Email.
+          type: string
+          format: email
+        password:
+          description: |
+            Password.
+          type: string
+      required:
+        - email
+        - password
+    google_oauth:
+      title: Google oauth object.
+      description: |
+        Google oauth object.
+      type: object
+      properties:
+        access_token:
+          description: |
+            Access token.
+          type: string
+      required:
+        - access_token
+    logout:
+      title: Logout object.
+      description: |
+        Logout object.
+      type: object
+      properties: {}
+    plan:
+      title: Plan object.
+      description: |
+        Plan object.
+      type: object
+      properties:
+        id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        amount:
+          description: |
+            See Stripe API docs.
+          type: number
+          format: double
+        currency:
+          description: |
+            See Stripe API docs.
+          type: string
+        interval:
+          description: |
+            See Stripe API docs.
+          type: string
+        interval_count:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        name:
+          description: |
+            See Stripe API docs.
+          type: string
+        trial_period_days:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+    user_patch:
+      title: User patch object.
+      description: |
+        User patch object.
+      type: object
+      properties:
+        first_name:
+          description: |
+            First name.
+          type: string
+        last_name:
+          description: |
+            Last name.
+          type: string
+        profile_picture:
+          description: |
+            Profile picture.
+          type: string
+          format: url
+    subscription_patch:
+      title: Subscription patch object.
+      description: |
+        Subscription patch object.
+      type: object
+      properties:
+        plan_id:
+          description: |
+            The plan to update the subscription to, by ID. See Stripe API docs.
+          type: integer
+          format: int64
+      required:
+        - plan_id
+    card_patch:
+      title: Card patch object.
+      description: |
+        Card patch object.
+      type: object
+      properties:
+        name:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_line_1:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_line_2:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_city:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_state:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_country:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_zip:
+          description: |
+            Plan, by ID. See Stripe API docs.
+          type: string
+        country:
+          description: |
+            See Stripe API docs.
+          type: string
+        exp_month:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        exp_year:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+    subscription_post:
+      title: Subscription post object.
+      description: |
+        Subscription post object.
+      type: object
+      properties:
+        plan_id:
+          description: |
+            The plan to create the subscription for, by ID. See Stripe API docs.
+          type: integer
+          format: int64
+      required:
+        - plan_id
+    card_post:
+      title: Card post object.
+      description: |
+        Card post object.
+      type: object
+      properties:
+        stripe_token:
+          description: |
+            Stripe token for the card. See Stripe API docs.
+          type: string
+      required:
+        - stripe_token
+    subscription_cancel:
+      title: Subscription cancel object.
+      description: |
+        Subscription cancel object.
+      type: object
+      properties: {}
+    user_res:
+      title: User response object.
+      description: |
+        User response object.
+      type: object
+      properties:
+        user_id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        email:
+          description: |
+            Email address.
+          type: string
+          format: email
+        password:
+          description: |
+            Password.
+          type: string
+          format: string
+        first_name:
+          description: |
+            First name.
+          type: string
+        last_name:
+          description: |
+            Last name.
+          type: string
+        profile_picture:
+          description: |
+            Profile picture.
+          type: string
+          format: url
+        date_joined:
+          description: |
+            Date the user signed up.
+          type: string
+          format: date
+        is_active:
+          description: |
+            Specifies if the user's account  is active.
+          type: boolean
+        is_staff:
+          description: |
+            Specifies if the user has staff credentials.
+          type: boolean
+        is_superuser:
+          description: |
+            Specifies if the user has superuser credentials.
+          type: boolean
+        last_login:
+          description: |
+            The last time the user logged in.
+          type: string
+          format: date-time
+    subscription_res:
+      title: Subscription response object.
+      description: |
+        Subscription response object.
+      type: object
+      properties:
+        id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        application_fee_percent:
+          description: |
+            See Stripe API docs.
+          type: number
+          format: double
+        cancel_at_period_end:
+          description: |
+            See Stripe API docs.
+          type: boolean
+        canceled_at:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        current_period_end:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: email
+        current_period_start:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        ended_at:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        plan:
+          description: |
+            Plan, by ID. See Stripe API docs.
+          type: integer
+          format: int64
+        quantity:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        start:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        status:
+          description: |
+            See Stripe API docs.
+          type: string
+        trial_end:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+        trial_start:
+          description: |
+            See Stripe API docs.
+          type: string
+          format: date-time
+    card_res:
+      title: Card response object.
+      description: |
+        Card response object.
+      type: object
+      properties:
+        id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        name:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_line_1:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_line_2:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_city:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_state:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_country:
+          description: |
+            See Stripe API docs.
+          type: string
+        address_zip:
+          description: |
+            Plan, by ID. See Stripe API docs.
+          type: string
+        brand:
+          description: |
+            See Stripe API docs.
+          type: string
+        country:
+          description: |
+            See Stripe API docs.
+          type: string
+        exp_month:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        exp_year:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        last4:
+          description: |
+            See Stripe API docs.
+          type: string
+    login_res:
+      title: Login response object.
+      description: |
+        Login response object.
+      type: object
+      properties:
+        key:
+          description: |
+            Token key.
+          type: string
+    google_oauth_res:
+      title: Google oauth response object.
+      description: |
+        Google oauth response object.
+      type: object
+      properties:
+        key:
+          description: |
+            Token key.
+          type: string
+    plan_res:
+      title: Plan response object.
+      description: |
+        Plan response object.
+      type: object
+      properties:
+        id:
+          description: |
+            Unique ID. Generated automatically by the database.
+          type: integer
+          format: int64
+        amount:
+          description: |
+            See Stripe API docs.
+          type: number
+          format: double
+        currency:
+          description: |
+            See Stripe API docs.
+          type: string
+        interval:
+          description: |
+            See Stripe API docs.
+          type: string
+        interval_count:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+        name:
+          description: |
+            See Stripe API docs.
+          type: string
+        trial_period_days:
+          description: |
+            See Stripe API docs.
+          type: integer
+          format: int64
+    users_res:
+      title: List of users response object.
+      description: |
+        List of users response object.
+      type: object
+      properties:
+        count:
+          description: |
+            Number of objects returned.
+          type: integer
+          format: int64
+        next:
+          description: |
+            Link to next paginated page of objects.
+          type: string
+          format: url
+        previous:
+          description: |
+            Link to previous paginated page of objects.
+          type: string
+          format: url
+        results:
+          description: |
+            Array of objects.
+          type: array
+          items:
+            title: User object.
+            description: |
+              User object.
+            type: object
+            properties:
+              user_id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              email:
+                description: |
+                  Email address.
+                type: string
+                format: email
+              password:
+                description: |
+                  Password.
+                type: string
+                format: string
+              first_name:
+                description: |
+                  First name.
+                type: string
+              last_name:
+                description: |
+                  Last name.
+                type: string
+              profile_picture:
+                description: |
+                  Profile picture.
+                type: string
+                format: url
+              date_joined:
+                description: |
+                  Date the user signed up.
+                type: string
+                format: date
+              is_active:
+                description: |
+                  Specifies if the user's account  is active.
+                type: boolean
+              is_staff:
+                description: |
+                  Specifies if the user has staff credentials.
+                type: boolean
+              is_superuser:
+                description: |
+                  Specifies if the user has superuser credentials.
+                type: boolean
+              last_login:
+                description: |
+                  The last time the user logged in.
+                type: string
+                format: date-time
+            required:
+              - email
+    subscriptions_res:
+      title: List of subscriptions response object.
+      description: |
+        List of subscriptions response object.
+      type: object
+      properties:
+        count:
+          description: |
+            Number of objects returned.
+          type: integer
+          format: int64
+        next:
+          description: |
+            Link to next paginated page of objects.
+          type: string
+          format: url
+        previous:
+          description: |
+            Link to previous paginated page of objects.
+          type: string
+          format: url
+        results:
+          description: |
+            Array of objects.
+          type: array
+          items:
+            title: Subscription object.
+            description: |
+              Subscription object.
+            type: object
+            properties:
+              id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              application_fee_percent:
+                description: |
+                  See Stripe API docs.
+                type: number
+                format: double
+              cancel_at_period_end:
+                description: |
+                  See Stripe API docs.
+                type: boolean
+              canceled_at:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              current_period_end:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: email
+              current_period_start:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              ended_at:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              plan:
+                description: |
+                  Plan, by ID. See Stripe API docs.
+                type: integer
+                format: int64
+              quantity:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              start:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              status:
+                description: |
+                  See Stripe API docs.
+                type: string
+              trial_end:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              trial_start:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+    cards_res:
+      title: List of cards response object.
+      description: |
+        List of cards response object.
+      type: object
+      properties:
+        count:
+          description: |
+            Number of objects returned.
+          type: integer
+          format: int64
+        next:
+          description: |
+            Link to next paginated page of objects.
+          type: string
+          format: url
+        previous:
+          description: |
+            Link to previous paginated page of objects.
+          type: string
+          format: url
+        results:
+          description: |
+            Array of objects.
+          type: array
+          items:
+            title: Card object.
+            description: |
+              Card object.
+            type: object
+            properties:
+              id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              name:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_line_1:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_line_2:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_city:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_state:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_country:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_zip:
+                description: |
+                  Plan, by ID. See Stripe API docs.
+                type: string
+              brand:
+                description: |
+                  See Stripe API docs.
+                type: string
+              country:
+                description: |
+                  See Stripe API docs.
+                type: string
+              exp_month:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              exp_year:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              last4:
+                description: |
+                  See Stripe API docs.
+                type: string
+    plans_res:
+      title: List of plans response object.
+      description: |
+        List of plans response object.
+      type: object
+      properties:
+        count:
+          description: |
+            Number of objects returned.
+          type: integer
+          format: int64
+        next:
+          description: |
+            Link to next paginated page of objects.
+          type: string
+          format: url
+        previous:
+          description: |
+            Link to previous paginated page of objects.
+          type: string
+          format: url
+        results:
+          description: |
+            Array of objects.
+          type: array
+          items:
+            title: Plan object.
+            description: |
+              Plan object.
+            type: object
+            properties:
+              id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              amount:
+                description: |
+                  See Stripe API docs.
+                type: number
+                format: double
+              currency:
+                description: |
+                  See Stripe API docs.
+                type: string
+              interval:
+                description: |
+                  See Stripe API docs.
+                type: string
+              interval_count:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              name:
+                description: |
+                  See Stripe API docs.
+                type: string
+              trial_period_days:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+  responses:
+    user:
+      description: |
+        Returned User object.
+      content:
+        application/json:
+          schema:
+            title: User response object.
+            description: |
+              User response object.
+            type: object
+            properties:
+              user_id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              email:
+                description: |
+                  Email address.
+                type: string
+                format: email
+              password:
+                description: |
+                  Password.
+                type: string
+                format: string
+              first_name:
+                description: |
+                  First name.
+                type: string
+              last_name:
+                description: |
+                  Last name.
+                type: string
+              profile_picture:
+                description: |
+                  Profile picture.
+                type: string
+                format: url
+              date_joined:
+                description: |
+                  Date the user signed up.
+                type: string
+                format: date
+              is_active:
+                description: |
+                  Specifies if the user's account  is active.
+                type: boolean
+              is_staff:
+                description: |
+                  Specifies if the user has staff credentials.
+                type: boolean
+              is_superuser:
+                description: |
+                  Specifies if the user has superuser credentials.
+                type: boolean
+              last_login:
+                description: |
+                  The last time the user logged in.
+                type: string
+                format: date-time
+          example:
+            description: |
+              User response object example.
+            value:
+              user_id: 0
+              email: ''
+              password: ''
+              first_name: ''
+              last_name: ''
+              profile_picture: ''
+              date_joined: ''
+              is_active: true
+              is_staff: true
+              is_superuser: true
+              last_login: ''
+    login:
+      description: |
+        Returned authentication token.
+      content:
+        application/json:
+          schema:
+            title: Login response object.
+            description: |
+              Login response object.
+            type: object
+            properties:
+              key:
+                description: |
+                  Token key.
+                type: string
+          example:
+            description: |
+              Login response object example.
+            value:
+              key: ''
+    google_oauth:
+      description: |
+        Returned authentication token.
+      content:
+        application/json:
+          schema:
+            title: Google oauth response object.
+            description: |
+              Google oauth response object.
+            type: object
+            properties:
+              key:
+                description: |
+                  Token key.
+                type: string
+          example:
+            description: |
+              Google oauth response object example.
+            value:
+              key: ''
+    plan:
+      description: |
+        Returned Plan object.
+      content:
+        application/json:
+          schema:
+            title: Plan response object.
+            description: |
+              Plan response object.
+            type: object
+            properties:
+              id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              amount:
+                description: |
+                  See Stripe API docs.
+                type: number
+                format: double
+              currency:
+                description: |
+                  See Stripe API docs.
+                type: string
+              interval:
+                description: |
+                  See Stripe API docs.
+                type: string
+              interval_count:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              name:
+                description: |
+                  See Stripe API docs.
+                type: string
+              trial_period_days:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+          example:
+            description: |
+              Plan response object example.
+            value:
+              id: 0
+              amount: 0
+              currency: ''
+              interval: ''
+              interval_count: 0
+              name: ''
+              trial_period_days: 0
+    card:
+      description: |
+        Returned Card object.
+      content:
+        application/json:
+          schema:
+            title: Card response object.
+            description: |
+              Card response object.
+            type: object
+            properties:
+              id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              name:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_line_1:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_line_2:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_city:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_state:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_country:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_zip:
+                description: |
+                  Plan, by ID. See Stripe API docs.
+                type: string
+              brand:
+                description: |
+                  See Stripe API docs.
+                type: string
+              country:
+                description: |
+                  See Stripe API docs.
+                type: string
+              exp_month:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              exp_year:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              last4:
+                description: |
+                  See Stripe API docs.
+                type: string
+          example:
+            description: |
+              Card response object example.
+            value:
+              id: 0
+              name: ''
+              address_line_1: ''
+              address_line_2: ''
+              address_city: ''
+              address_state: ''
+              address_country: ''
+              address_zip: ''
+              brand: ''
+              country: ''
+              exp_month: 0
+              exp_year: 0
+              last4: ''
+    subscription:
+      description: |
+        Returned Subscription object.
+      content:
+        application/json:
+          schema:
+            title: Subscription response object.
+            description: |
+              Subscription response object.
+            type: object
+            properties:
+              id:
+                description: |
+                  Unique ID. Generated automatically by the database.
+                type: integer
+                format: int64
+              application_fee_percent:
+                description: |
+                  See Stripe API docs.
+                type: number
+                format: double
+              cancel_at_period_end:
+                description: |
+                  See Stripe API docs.
+                type: boolean
+              canceled_at:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              current_period_end:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: email
+              current_period_start:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              ended_at:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              plan:
+                description: |
+                  Plan, by ID. See Stripe API docs.
+                type: integer
+                format: int64
+              quantity:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              start:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              status:
+                description: |
+                  See Stripe API docs.
+                type: string
+              trial_end:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+              trial_start:
+                description: |
+                  See Stripe API docs.
+                type: string
+                format: date-time
+          example:
+            description: |
+              Subscription response object example.
+            value:
+              id: 0
+              application_fee_percent: 0
+              cancel_at_period_end: true
+              canceled_at: ''
+              current_period_end: ''
+              current_period_start: ''
+              ended_at: ''
+              plan: 0
+              quantity: 0
+              start: ''
+              status: ''
+              trial_end: ''
+              trial_start: ''
+    plans:
+      description: |
+        Returned list of Plan objects.
+      content:
+        application/json:
+          schema:
+            title: List of plans response object.
+            description: |
+              List of plans response object.
+            type: object
+            properties:
+              count:
+                description: |
+                  Number of objects returned.
+                type: integer
+                format: int64
+              next:
+                description: |
+                  Link to next paginated page of objects.
+                type: string
+                format: url
+              previous:
+                description: |
+                  Link to previous paginated page of objects.
+                type: string
+                format: url
+              results:
+                description: |
+                  Array of objects.
+                type: array
+                items:
+                  title: Plan object.
+                  description: |
+                    Plan object.
+                  type: object
+                  properties:
+                    id:
+                      description: |
+                        Unique ID. Generated automatically by the database.
+                      type: integer
+                      format: int64
+                    amount:
+                      description: |
+                        See Stripe API docs.
+                      type: number
+                      format: double
+                    currency:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    interval:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    interval_count:
+                      description: |
+                        See Stripe API docs.
+                      type: integer
+                      format: int64
+                    name:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    trial_period_days:
+                      description: |
+                        See Stripe API docs.
+                      type: integer
+                      format: int64
+          example:
+            description: |
+              List of plans response object example.
+            value:
+              count: 0
+              next: ''
+              previous: ''
+              results:
+                - id: 0
+                  amount: 0
+                  currency: ''
+                  interval: ''
+                  interval_count: 0
+                  name: ''
+                  trial_period_days: 0
+    cards:
+      description: |
+        Returned list of Card objects.
+      content:
+        application/json:
+          schema:
+            title: List of cards response object.
+            description: |
+              List of cards response object.
+            type: object
+            properties:
+              count:
+                description: |
+                  Number of objects returned.
+                type: integer
+                format: int64
+              next:
+                description: |
+                  Link to next paginated page of objects.
+                type: string
+                format: url
+              previous:
+                description: |
+                  Link to previous paginated page of objects.
+                type: string
+                format: url
+              results:
+                description: |
+                  Array of objects.
+                type: array
+                items:
+                  title: Card object.
+                  description: |
+                    Card object.
+                  type: object
+                  properties:
+                    id:
+                      description: |
+                        Unique ID. Generated automatically by the database.
+                      type: integer
+                      format: int64
+                    name:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    address_line_1:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    address_line_2:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    address_city:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    address_state:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    address_country:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    address_zip:
+                      description: |
+                        Plan, by ID. See Stripe API docs.
+                      type: string
+                    brand:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    country:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    exp_month:
+                      description: |
+                        See Stripe API docs.
+                      type: integer
+                      format: int64
+                    exp_year:
+                      description: |
+                        See Stripe API docs.
+                      type: integer
+                      format: int64
+                    last4:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+          example:
+            description: |
+              List of cards response object example.
+            value:
+              count: 0
+              next: ''
+              previous: ''
+              results:
+                - id: 0
+                  name: ''
+                  address_line_1: ''
+                  address_line_2: ''
+                  address_city: ''
+                  address_state: ''
+                  address_country: ''
+                  address_zip: ''
+                  brand: ''
+                  country: ''
+                  exp_month: 0
+                  exp_year: 0
+                  last4: ''
+    subscriptions:
+      description: |
+        Returned list of Subscription objects.
+      content:
+        application/json:
+          schema:
+            title: List of subscriptions response object.
+            description: |
+              List of subscriptions response object.
+            type: object
+            properties:
+              count:
+                description: |
+                  Number of objects returned.
+                type: integer
+                format: int64
+              next:
+                description: |
+                  Link to next paginated page of objects.
+                type: string
+                format: url
+              previous:
+                description: |
+                  Link to previous paginated page of objects.
+                type: string
+                format: url
+              results:
+                description: |
+                  Array of objects.
+                type: array
+                items:
+                  title: Subscription object.
+                  description: |
+                    Subscription object.
+                  type: object
+                  properties:
+                    id:
+                      description: |
+                        Unique ID. Generated automatically by the database.
+                      type: integer
+                      format: int64
+                    application_fee_percent:
+                      description: |
+                        See Stripe API docs.
+                      type: number
+                      format: double
+                    cancel_at_period_end:
+                      description: |
+                        See Stripe API docs.
+                      type: boolean
+                    canceled_at:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                      format: date-time
+                    current_period_end:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                      format: email
+                    current_period_start:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                      format: date-time
+                    ended_at:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                      format: date-time
+                    plan:
+                      description: |
+                        Plan, by ID. See Stripe API docs.
+                      type: integer
+                      format: int64
+                    quantity:
+                      description: |
+                        See Stripe API docs.
+                      type: integer
+                      format: int64
+                    start:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                      format: date-time
+                    status:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                    trial_end:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                      format: date-time
+                    trial_start:
+                      description: |
+                        See Stripe API docs.
+                      type: string
+                      format: date-time
+          example:
+            description: |
+              Subscriptions response object example.
+            value:
+              count: 0
+              next: ''
+              previous: ''
+              results:
+                - id: 0
+                  application_fee_percent: 0
+                  cancel_at_period_end: true
+                  canceled_at: ''
+                  current_period_end: ''
+                  current_period_start: ''
+                  ended_at: ''
+                  plan: 0
+                  quantity: 0
+                  start: ''
+                  status: ''
+                  trial_end: ''
+                  trial_start: ''
+  parameters:
+    email_verification_key_p:
+      name: email_verification_key
+      in: path
+      required: true
+      description: |
+        Email verification key.
+      schema:
+        type: string
+      style: simple
+    plan_id_p:
+      name: plan_id
+      in: path
+      required: true
+      description: |
+        Specifies a Plan object.
+      schema:
+        type: integer
+      style: simple
+    subscription_id_p:
+      name: subscription_id
+      in: path
+      required: true
+      description: |
+        Specifies a Subscription object.
+      schema:
+        type: integer
+      style: simple
+    card_id_p:
+      name: card_id
+      in: path
+      required: true
+      description: |
+        Specifies a Card object.
+      schema:
+        type: integer
+      style: simple
+    page_q:
+      name: page
+      in: query
+      required: false
+      description: |
+        The page of pagninated results to return.
+      schema:
+        type: integer
+      style: form
+    filters_q:
+      name: filters
+      in: query
+      required: false
+      description: |
+        A list of URL-encoded search filters.
+      schema:
+        type: string
+      style: form
+    period_q:
+      name: period
+      in: query
+      required: false
+      description: >
+        Period of event occurences to return. Options are 'week' and 'month'.
+        Defaults to 'week'.
+      schema:
+        type: string
+      style: form
+    multiplier_q:
+      name: multiplier
+      in: query
+      required: false
+      description: |
+        Multiplier for the period of event occurrences. Defaults to 1.
+      schema:
+        type: integer
+      style: form
+  examples:
+    user:
+      description: |
+        User object example.
+      value:
+        user_id: 0
+        email: ''
+        password: ''
+        first_name: ''
+        last_name: ''
+        profile_picture: ''
+        date_joined: ''
+        is_active: true
+        is_staff: true
+        is_superuser: true
+        last_login: ''
+    subscription:
+      description: |
+        Subscription object example.
+      value:
+        id: 0
+        application_fee_percent: 0
+        cancel_at_period_end: true
+        canceled_at: ''
+        current_period_end: ''
+        current_period_start: ''
+        ended_at: ''
+        plan: 0
+        quantity: 0
+        start: ''
+        status: ''
+        trial_end: ''
+        trial_start: ''
+    card:
+      description: |
+        Card object example.
+      value:
+        id: 0
+        name: ''
+        address_line_1: ''
+        address_line_2: ''
+        address_city: ''
+        address_state: ''
+        address_country: ''
+        address_zip: ''
+        brand: ''
+        country: ''
+        exp_month: 0
+        exp_year: 0
+        last4: ''
+    registration_info:
+      description: |
+        Registration info object example.
+      value:
+        email: ''
+        password1: ''
+        password2: ''
+    password_reset_info:
+      description: |
+        Password reset info object example.
+      value:
+        email: ''
+    password_change_info:
+      description: |
+        Password change info object example.
+      value:
+        old_password: ''
+        new_password1: ''
+        new_password2: ''
+    password_reset_confirm_info:
+      description: |
+        Password reset confirmation object example.
+      value:
+        password1: ''
+        password2: ''
+        uid: ''
+        token: ''
+    email_verification_key:
+      description: |
+        Email verification key object example.
+      value:
+        key: ''
+    auth_token:
+      description: |
+        Authentication token object example.
+      value:
+        key: ''
+    login:
+      description: |
+        Login object example.
+      value:
+        email: ''
+        password: ''
+    google_oauth:
+      description: |
+        Google oauth object example.
+      value:
+        access_token: ''
+    logout:
+      description: |
+        Logout object example.
+      value: {}
+    plan:
+      description: |
+        Plan object example.
+      value:
+        id: 0
+        amount: 0
+        currency: ''
+        interval: ''
+        interval_count: 0
+        name: ''
+        trial_period_days: 0
+    user_patch:
+      description: |
+        User patch object example.
+      value:
+        first_name: ''
+        last_name: ''
+        profile_picture: ''
+    subscription_patch:
+      description: |
+        Subscription patch object example.
+      value:
+        plan_id: 0
+    card_patch:
+      description: |
+        Card patch object example.
+      value:
+        name: ''
+        address_line_1: ''
+        address_line_2: ''
+        address_city: ''
+        address_state: ''
+        address_country: ''
+        address_zip: ''
+        country: ''
+        exp_month: 0
+        exp_year: 0
+    subscription_post:
+      description: |
+        Subscription post object example.
+      value:
+        plan_id: 0
+    card_post:
+      description: |
+        Card post object example.
+      value:
+        stripe_token: ''
+    subscription_cancel:
+      description: |
+        Subscription cancel object example.
+      value: {}
+    user_res:
+      description: |
+        User response object example.
+      value:
+        user_id: 0
+        email: ''
+        password: ''
+        first_name: ''
+        last_name: ''
+        profile_picture: ''
+        date_joined: ''
+        is_active: true
+        is_staff: true
+        is_superuser: true
+        last_login: ''
+    subscription_res:
+      description: |
+        Subscription response object example.
+      value:
+        id: 0
+        application_fee_percent: 0
+        cancel_at_period_end: true
+        canceled_at: ''
+        current_period_end: ''
+        current_period_start: ''
+        ended_at: ''
+        plan: 0
+        quantity: 0
+        start: ''
+        status: ''
+        trial_end: ''
+        trial_start: ''
+    card_res:
+      description: |
+        Card response object example.
+      value:
+        id: 0
+        name: ''
+        address_line_1: ''
+        address_line_2: ''
+        address_city: ''
+        address_state: ''
+        address_country: ''
+        address_zip: ''
+        brand: ''
+        country: ''
+        exp_month: 0
+        exp_year: 0
+        last4: ''
+    login_res:
+      description: |
+        Login response object example.
+      value:
+        key: ''
+    google_oauth_res:
+      description: |
+        Google oauth response object example.
+      value:
+        key: ''
+    plan_res:
+      description: |
+        Plan response object example.
+      value:
+        id: 0
+        amount: 0
+        currency: ''
+        interval: ''
+        interval_count: 0
+        name: ''
+        trial_period_days: 0
+    users_res:
+      description: |
+        List of users response object example.
+      value:
+        count: 0
+        next: ''
+        previous: ''
+        results:
+          - user_id: 0
+            email: ''
+            password: ''
+            first_name: ''
+            last_name: ''
+            profile_picture: ''
+            date_joined: ''
+            is_active: true
+            is_staff: true
+            is_superuser: true
+            last_login: ''
+    subscriptions_res:
+      description: |
+        Subscriptions response object example.
+      value:
+        count: 0
+        next: ''
+        previous: ''
+        results:
+          - id: 0
+            application_fee_percent: 0
+            cancel_at_period_end: true
+            canceled_at: ''
+            current_period_end: ''
+            current_period_start: ''
+            ended_at: ''
+            plan: 0
+            quantity: 0
+            start: ''
+            status: ''
+            trial_end: ''
+            trial_start: ''
+    cards_res:
+      description: |
+        List of cards response object example.
+      value:
+        count: 0
+        next: ''
+        previous: ''
+        results:
+          - id: 0
+            name: ''
+            address_line_1: ''
+            address_line_2: ''
+            address_city: ''
+            address_state: ''
+            address_country: ''
+            address_zip: ''
+            brand: ''
+            country: ''
+            exp_month: 0
+            exp_year: 0
+            last4: ''
+    plans_res:
+      description: |
+        List of plans response object example.
+      value:
+        count: 0
+        next: ''
+        previous: ''
+        results:
+          - id: 0
+            amount: 0
+            currency: ''
+            interval: ''
+            interval_count: 0
+            name: ''
+            trial_period_days: 0
+  requestBodies:
+    email_verification_key_post:
+      description: |
+        Finalize the email verification process.
+      content:
+        application/json:
+          schema:
+            title: Email verification key object.
+            description: |
+              Email verification key object.
+            type: object
+            properties:
+              key:
+                description: |
+                  Verification key.
+                type: string
+            required:
+              - key
+          example:
+            description: |
+              Email verification key object example.
+            value:
+              key: ''
+      required: true
+    login_post:
+      description: |
+        Login credentials.
+      content:
+        application/json:
+          schema:
+            title: Login object.
+            description: |
+              Login object.
+            type: object
+            properties:
+              email:
+                description: |
+                  Email.
+                type: string
+                format: email
+              password:
+                description: |
+                  Password.
+                type: string
+            required:
+              - email
+              - password
+          example:
+            description: |
+              Login object example.
+            value:
+              email: ''
+              password: ''
+      required: true
+    google_oauth_post:
+      description: |
+        Google Oauth credentials.
+      content:
+        application/json:
+          schema:
+            title: Google oauth object.
+            description: |
+              Google oauth object.
+            type: object
+            properties:
+              access_token:
+                description: |
+                  Access token.
+                type: string
+            required:
+              - access_token
+          example:
+            description: |
+              Google oauth object example.
+            value:
+              access_token: ''
+      required: true
+    logout_post:
+      description: |
+        Logout.
+      content:
+        application/json:
+          schema:
+            title: Logout object.
+            description: |
+              Logout object.
+            type: object
+            properties: {}
+          example:
+            description: |
+              Logout object example.
+            value: {}
+      required: true
+    registration_info_post:
+      description: |
+        Account info for the new user.
+      content:
+        application/json:
+          schema:
+            title: Registration info object.
+            description: |
+              Registration info object.
+            type: object
+            properties:
+              email:
+                description: |
+                  Email.
+                type: string
+                format: email
+              password1:
+                description: |
+                  Password.
+                type: string
+              password2:
+                description: |
+                  Password confirmation.
+                type: string
+            required:
+              - email
+              - password1
+              - password2
+          example:
+            description: |
+              Registration info object example.
+            value:
+              email: ''
+              password1: ''
+              password2: ''
+      required: true
+    password_reset_info_post:
+      description: |
+        Start the process reset process.
+      content:
+        application/json:
+          schema:
+            title: Password reset info object.
+            description: |
+              Password reset info object.
+            type: object
+            properties:
+              email:
+                description: |
+                  Email.
+                type: string
+                format: email
+            required:
+              - email
+          example:
+            description: |
+              Password reset info object example.
+            value:
+              email: ''
+      required: true
+    password_change_info_post:
+      description: |
+        New password info.
+      content:
+        application/json:
+          schema:
+            title: Password change info object.
+            description: |
+              Password change info object.
+            type: object
+            properties:
+              old_password:
+                description: |
+                  Old password.
+                type: string
+              new_password1:
+                description: |
+                  New password.
+                type: string
+              new_password2:
+                description: |
+                  New password confirm.
+                type: string
+            required:
+              - old_password
+              - new_password1
+              - new_password2
+          example:
+            description: |
+              Password change info object example.
+            value:
+              old_password: ''
+              new_password1: ''
+              new_password2: ''
+      required: true
+    password_reset_confirm_info_post:
+      description: |
+        Finalize the password reset process.
+      content:
+        application/json:
+          schema:
+            title: Password reset confirmation info object.
+            description: |
+              Password reset confirmation info object.
+            type: object
+            properties:
+              password1:
+                description: |
+                  New password.
+                type: string
+              password2:
+                description: |
+                  New password confirmation.
+                type: string
+              uid:
+                description: |
+                  UID.
+                type: string
+              token:
+                description: |
+                  Token.
+                type: string
+            required:
+              - password1
+              - password2
+              - uid
+              - token
+          example:
+            description: |
+              Password reset confirmation object example.
+            value:
+              password1: ''
+              password2: ''
+              uid: ''
+              token: ''
+      required: true
+    subscription_post:
+      description: |
+        Subscription object create request body.
+      content:
+        application/json:
+          schema:
+            title: Subscription post object.
+            description: |
+              Subscription post object.
+            type: object
+            properties:
+              plan_id:
+                description: >
+                  The plan to create the subscription for, by ID. See Stripe API
+                  docs.
+                type: integer
+                format: int64
+            required:
+              - plan_id
+          example:
+            description: |
+              Subscription post object example.
+            value:
+              plan_id: 0
+      required: true
+    card_post:
+      description: |
+        The Card object to create.
+      content:
+        application/json:
+          schema:
+            title: Card post object.
+            description: |
+              Card post object.
+            type: object
+            properties:
+              stripe_token:
+                description: |
+                  Stripe token for the card. See Stripe API docs.
+                type: string
+            required:
+              - stripe_token
+          example:
+            description: |
+              Card post object example.
+            value:
+              stripe_token: ''
+      required: true
+    user_patch:
+      description: |
+        The User object to update.
+      content:
+        application/json:
+          schema:
+            title: User patch object.
+            description: |
+              User patch object.
+            type: object
+            properties:
+              first_name:
+                description: |
+                  First name.
+                type: string
+              last_name:
+                description: |
+                  Last name.
+                type: string
+              profile_picture:
+                description: |
+                  Profile picture.
+                type: string
+                format: url
+          example:
+            description: |
+              User patch object example.
+            value:
+              first_name: ''
+              last_name: ''
+              profile_picture: ''
+      required: true
+    subscription_patch:
+      description: |
+        Subscription update request body.
+      content:
+        application/json:
+          schema:
+            title: Subscription patch object.
+            description: |
+              Subscription patch object.
+            type: object
+            properties:
+              plan_id:
+                description: >
+                  The plan to update the subscription to, by ID. See Stripe API
+                  docs.
+                type: integer
+                format: int64
+            required:
+              - plan_id
+          example:
+            description: |
+              Subscription patch object example.
+            value:
+              plan_id: 0
+      required: true
+    card_patch:
+      description: |
+        The Card object to update.
+      content:
+        application/json:
+          schema:
+            title: Card patch object.
+            description: |
+              Card patch object.
+            type: object
+            properties:
+              name:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_line_1:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_line_2:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_city:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_state:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_country:
+                description: |
+                  See Stripe API docs.
+                type: string
+              address_zip:
+                description: |
+                  Plan, by ID. See Stripe API docs.
+                type: string
+              country:
+                description: |
+                  See Stripe API docs.
+                type: string
+              exp_month:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+              exp_year:
+                description: |
+                  See Stripe API docs.
+                type: integer
+                format: int64
+          example:
+            description: |
+              Card patch object example.
+            value:
+              name: ''
+              address_line_1: ''
+              address_line_2: ''
+              address_city: ''
+              address_state: ''
+              address_country: ''
+              address_zip: ''
+              country: ''
+              exp_month: 0
+              exp_year: 0
+      required: true
+    subscription_cancel:
+      description: |
+        Subscription cancellation request body.
+      content:
+        application/json:
+          schema:
+            title: Subscription cancel object.
+            description: |
+              Subscription cancel object.
+            type: object
+            properties: {}
+          example:
+            description: |
+              Subscription cancel object example.
+            value: {}
+      required: true
+  securitySchemes:
+    token_auth:
+      type: http
+      description: >
+        "HTTP Bearer authentication. The value of the Authorization header must
+        be in the following format: Token [token]"
+      scheme: bearer
+security:
+  - token_auth: []
+

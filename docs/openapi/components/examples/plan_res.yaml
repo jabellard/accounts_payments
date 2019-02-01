@@ -1,0 +1,10 @@
+description: |
+  Plan response object example.
+value:
+  id: 0
+  amount: 0.0
+  currency: ''
+  interval: ''
+  interval_count: 0
+  name: ''
+  trial_period_days: 0

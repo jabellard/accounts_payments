@@ -1,0 +1,9 @@
+description: |
+  Login credentials.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/login.yaml'
+    example:
+      $ref: '../examples/login.yaml'
+required: true

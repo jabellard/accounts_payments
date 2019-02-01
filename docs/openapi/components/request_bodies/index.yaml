@@ -1,0 +1,28 @@
+email_verification_key_post:
+  $ref: './email_verification_key_post.yaml'
+login_post:
+  $ref: './login_post.yaml'
+google_oauth_post:
+  $ref: './google_oauth_post.yaml'
+logout_post:
+  $ref: './logout_post.yaml'
+registration_info_post:
+  $ref: './registration_info_post.yaml'
+password_reset_info_post:
+  $ref: './password_reset_info_post.yaml'
+password_change_info_post:
+  $ref: './password_change_info_post.yaml'
+password_reset_confirm_info_post:
+  $ref: './password_reset_confirm_info_post.yaml'
+subscription_post:
+  $ref: './subscription_post.yaml'
+card_post:
+  $ref: './card_post.yaml'
+user_patch:
+  $ref: './user_patch.yaml'
+subscription_patch:
+  $ref: './subscription_patch.yaml'
+card_patch:
+  $ref: './card_patch.yaml'
+subscription_cancel:
+  $ref: './subscription_cancel.yaml'

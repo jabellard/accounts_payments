@@ -1,0 +1,13 @@
+description: |
+  Card patch object example.
+value:
+  name: ''
+  address_line_1: ''
+  address_line_2: ''
+  address_city: ''
+  address_state: ''
+  address_country: ''
+  address_zip: ''
+  country: ''
+  exp_month: 0
+  exp_year: 0

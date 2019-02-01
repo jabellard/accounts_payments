@@ -1,0 +1,55 @@
+title: User response object.
+description: |
+  User response object.
+type: object
+properties:
+  user_id:
+    description: |
+      Unique ID. Generated automatically by the database.
+    type: integer
+    format: int64
+  email:
+    description: |
+      Email address.
+    type: string
+    format: email
+  password:
+    description: |
+      Password.
+    type: string
+    format: string
+  first_name:
+    description: |
+      First name.
+    type: string
+  last_name:
+    description: |
+      Last name.
+    type: string
+  profile_picture:
+    description: |
+      Profile picture.
+    type: string
+    format: url
+  date_joined:
+    description: |
+      Date the user signed up.
+    type: string
+    format: date
+  is_active:
+    description: |
+      Specifies if the user's account  is active.
+    type: boolean
+  is_staff:
+    description: |
+      Specifies if the user has staff credentials.
+    type: boolean
+  is_superuser:
+    description: |
+      Specifies if the user has superuser credentials.
+    type: boolean
+  last_login:
+    description: |
+      The last time the user logged in.
+    type: string
+    format: date-time

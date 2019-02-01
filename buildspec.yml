@@ -1,0 +1,22 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - sudo apt-get update
+      - sudo apt-get install -y graphviz libgraphviz-dev pkg-config
+      - pip install -r requirements.txt
+
+      #- pip install Django
+  pre_build:
+    commands:
+      - echo Testing...
+      - python manage.py test
+  build:
+    commands:
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'

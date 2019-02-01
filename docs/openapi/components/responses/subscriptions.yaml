@@ -1,0 +1,8 @@
+description: |
+  Returned list of Subscription objects.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/subscriptions_res.yaml'
+    example:
+      $ref: '../examples/subscriptions_res.yaml'

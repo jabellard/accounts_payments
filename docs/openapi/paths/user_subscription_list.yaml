@@ -1,0 +1,21 @@
+get:
+  tags: []
+  description: |
+    Return all subscriptions for the authenticated user.
+  operationId: user_subscription_list_get
+  parameters:
+    - $ref: '#/components/parameters/page_q'
+  responses:
+    '200':
+      $ref: '#/components/responses/subscriptions'
+post:
+  tags: []
+  description: |
+    Create a subscription for the authenticated user.
+  operationId: user_subscription_list_post
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/subscription_post'
+  responses:
+    '200':
+      $ref: '#/components/responses/subscription'

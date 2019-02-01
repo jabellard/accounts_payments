@@ -1,0 +1,4 @@
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans %}Please CONFIRMMM Your E-mail Address{% endblocktrans %}
+{% endautoescape %}

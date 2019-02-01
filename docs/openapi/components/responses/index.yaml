@@ -1,0 +1,18 @@
+user:
+  $ref: './user.yaml'
+login:
+  $ref: './login.yaml'
+google_oauth:
+  $ref: './google_oauth.yaml'
+plan:
+  $ref: './plan.yaml'
+card:
+  $ref: './card.yaml'
+subscription:
+  $ref: './subscription.yaml'
+plans:
+  $ref: './plans.yaml'
+cards:
+  $ref: './cards.yaml'
+subscriptions:
+  $ref: './subscriptions.yaml'

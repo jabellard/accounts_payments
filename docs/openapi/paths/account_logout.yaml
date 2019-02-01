@@ -1,0 +1,12 @@
+post:
+  security: []
+  tags: []
+  description: |
+    Logout the authenticated user.
+  operationId: account_logout_post
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/logout_post'
+  responses:
+    '200':
+      $ref: '#/components/responses/login'

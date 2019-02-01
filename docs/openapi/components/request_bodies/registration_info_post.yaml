@@ -1,0 +1,9 @@
+description: |
+  Account info for the new user.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/registration_info.yaml'
+    example:
+      $ref: '../examples/registration_info.yaml'
+required: true

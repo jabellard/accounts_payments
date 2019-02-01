@@ -1,0 +1,9 @@
+description: |
+  The User object to update.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/user_patch.yaml'
+    example:
+      $ref: '../examples/user_patch.yaml'
+required: true

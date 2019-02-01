@@ -1,0 +1,4 @@
+description: |
+  Card post object example.
+value:
+  stripe_token: ''

@@ -1,0 +1,17 @@
+title: Login object.
+description: |
+  Login object.
+type: object
+properties:
+  email:
+    description: |
+      Email.
+    type: string
+    format: email
+  password:
+    description: |
+      Password.
+    type: string
+required:
+  - email
+  - password

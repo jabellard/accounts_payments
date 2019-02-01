@@ -1,0 +1,4 @@
+type: http
+description: |
+  "HTTP Bearer authentication. The value of the Authorization header must be in the following format: Token [token]"
+scheme: bearer

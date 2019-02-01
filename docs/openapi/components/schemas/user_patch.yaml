@@ -1,0 +1,18 @@
+title: User patch object.
+description: |
+  User patch object.
+type: object
+properties:
+  first_name:
+    description: |
+      First name.
+    type: string
+  last_name:
+    description: |
+      Last name.
+    type: string
+  profile_picture:
+    description: |
+      Profile picture.
+    type: string
+    format: url

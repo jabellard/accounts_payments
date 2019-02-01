@@ -1,0 +1,11 @@
+title: Card post object.
+description: |
+  Card post object.
+type: object
+properties:
+  stripe_token:
+    description: |
+      Stripe token for the card. See Stripe API docs.
+    type: string
+required:
+  - stripe_token

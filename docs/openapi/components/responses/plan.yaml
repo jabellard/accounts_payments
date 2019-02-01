@@ -1,0 +1,8 @@
+description: |
+  Returned Plan object.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/plan_res.yaml'
+    example:
+      $ref: '../examples/plan_res.yaml'

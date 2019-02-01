@@ -1,0 +1,36 @@
+/accounts/register:
+  $ref: './account_register.yaml'
+/accounts/oauth/google:
+  $ref: './oauth_google.yaml'
+/accounts/register/verify_email:
+  $ref: './account_verify_email.yaml'
+/accounts/login:
+  $ref: './account_login.yaml'
+/accounts/logout:
+  $ref: './account_logout.yaml'
+/accounts/password/reset:
+  $ref: './account_password_reset.yaml'
+/accounts/password/change:
+  $ref: './account_password_change.yaml'
+/accounts/password/reset/confirm:
+  $ref: './account_password_reset_confirm.yaml'
+/accounts/current_user:
+  $ref: './user_detail.yaml'
+/accounts/current_user/membership/subscriptions:
+  $ref: './user_subscription_list.yaml'
+/accounts/current_user/membership/subscriptions/{subscription_id}:
+  $ref: './user_subscription.yaml'
+/accounts/current_user/membership/subscriptions/{subscription_id}/cancel:
+  $ref: './user_subscription_cancel.yaml'
+/accounts/current_user/membership/plans:
+  $ref: './user_plan_list.yaml'
+/accounts/current_user/membership/plans/{plan_id}:
+  $ref: './user_plan.yaml'
+/accounts/current_user/membership/cards:
+  $ref: './user_card_list.yaml'
+/accounts/current_user/membership/cards/{card_id}:
+  $ref: './user_card_detail.yaml'
+/docs/coreapi:
+  $ref: './docs_coreapi.yaml'
+/docs/openapi:
+  $ref: './docs_openapi.yaml'

@@ -1,0 +1,12 @@
+title: Subscription patch object.
+description: |
+  Subscription patch object.
+type: object
+properties:
+  plan_id:
+    description: |
+      The plan to update the subscription to, by ID. See Stripe API docs.
+    type: integer
+    format: int64
+required:
+  - plan_id

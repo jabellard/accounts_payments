@@ -1,0 +1,2 @@
+token_auth:
+  $ref: './token_auth.yaml'

@@ -1,0 +1,8 @@
+name: period
+in: query
+required: false
+description: |
+  Period of event occurences to return. Options are 'week' and 'month'. Defaults to 'week'.
+schema:
+  type: string
+style: form

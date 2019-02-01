@@ -1,0 +1,30 @@
+get:
+  tags: []
+  description: |
+    Return account info for the authenticated user.
+  operationId: user_detail_get
+  parameters: []
+  responses:
+    '200':
+      $ref: '#/components/responses/user'
+patch:
+  tags: []
+  description: |
+    Update account info for the authenticated user.
+  operationId: user_detail_patch
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/user_patch'
+  responses:
+    '200':
+      $ref: '#/components/responses/user'
+delete:
+  tags: []
+  description: |
+    Delete the authenticated user's account.
+  operationId: user_detail_delete
+  parameters: []
+  responses:
+    '204':
+      description: |
+        No content.

@@ -1,0 +1,8 @@
+description: |
+  Returned Card object.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/card_res.yaml'
+    example:
+      $ref: '../examples/card_res.yaml'

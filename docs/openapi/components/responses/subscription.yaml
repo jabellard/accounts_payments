@@ -1,0 +1,8 @@
+description: |
+  Returned Subscription object.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/subscription_res.yaml'
+    example:
+      $ref: '../examples/subscription_res.yaml'

@@ -1,0 +1,26 @@
+title: List of subscriptions response object.
+description: |
+  List of subscriptions response object.
+type: object
+properties:
+  count:
+    description: |
+      Number of objects returned.
+    type: integer
+    format: int64
+  next:
+    description: |
+      Link to next paginated page of objects.
+    type: string
+    format: url
+  previous:
+    description: |
+      Link to previous paginated page of objects.
+    type: string
+    format: url
+  results:
+    description: |
+      Array of objects.
+    type: array
+    items:
+      $ref: './subscription.yaml'

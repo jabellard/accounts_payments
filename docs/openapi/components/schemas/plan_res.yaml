@@ -1,0 +1,37 @@
+title: Plan response object.
+description: |
+  Plan response object.
+type: object
+properties:
+  id:
+    description: |
+      Unique ID. Generated automatically by the database.
+    type: integer
+    format: int64
+  amount:
+    description: |
+      See Stripe API docs.
+    type: number
+    format: double
+  currency:
+    description: |
+      See Stripe API docs.
+    type: string
+  interval:
+    description: |
+      See Stripe API docs.
+    type: string
+  interval_count:
+    description: |
+      See Stripe API docs.
+    type: integer
+    format: int64
+  name:
+    description: |
+      See Stripe API docs.
+    type: string
+  trial_period_days:
+    description: |
+      See Stripe API docs.
+    type: integer
+    format: int64

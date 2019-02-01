@@ -1,0 +1,9 @@
+description: |
+  Google Oauth credentials.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/google_oauth.yaml'
+    example:
+      $ref: '../examples/google_oauth.yaml'
+required: true

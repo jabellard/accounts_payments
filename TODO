@@ -1,0 +1,18 @@
+Requirement/Importance levels:
+0: Optional: Optional. May yield some benefits.
+1: Mandatory: Mandatory.
+
+- [0] Pagination: pageNumber vs cursor
+- [0] Unit Testing
+- [0] Find out why user_logged_out signal is not triggered
+- [0] Find out why signal modules can't be imported from <app_name>.apps files
+- [0] Customize password reset email templates
+- [0] Customize user registration email templates
+- [1] Implement apps.accounts.ResetPasswordView view
+- [1] Implement apps.accounts.AccountConfirmView view
+- [1] Configure email backend
+- [1] Configure settings to migrate static and media files to S3
+- [1] Configure custom loading of production and development environment settings
+- [0] Decide if to enable mandatory email verification on signup
+- [0] Use pipenv for virtual environment management
+- [0] Add GraphQL functionality

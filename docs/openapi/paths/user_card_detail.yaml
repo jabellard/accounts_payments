@@ -1,0 +1,33 @@
+get:
+  tags: []
+  description: |
+    Return the specified card.
+  operationId: user_card_detail_get
+  parameters:
+    - $ref: '#/components/parameters/card_id_p'
+  responses:
+    '200':
+      $ref: '#/components/responses/card'
+patch:
+  tags: []
+  description: |
+    Update the specified card.
+  operationId: user_card_detail_patch
+  parameters:
+    - $ref: '#/components/parameters/card_id_p'
+  requestBody:
+    $ref: '#/components/requestBodies/card_patch'
+  responses:
+    '200':
+      $ref: '#/components/responses/card'
+delete:
+  tags: []
+  description: |
+    Delete the specified card.
+  operationId: user_card_detail_delete
+  parameters:
+    - $ref: '#/components/parameters/card_id_p'
+  responses:
+    '204':
+      description: |
+        No content.

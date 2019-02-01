@@ -1,0 +1,12 @@
+patch:
+  tags: []
+  description: |
+    Cancel the specified subscription for the authenticated user.
+  operationId: user_subscription_cancel
+  parameters:
+    - $ref: '#/components/parameters/subscription_id_p'
+  requestBody:
+    $ref: '#/components/requestBodies/subscription_cancel'
+  responses:
+    '200':
+      $ref: '#/components/responses/subscription'

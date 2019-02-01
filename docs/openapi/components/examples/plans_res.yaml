@@ -1,0 +1,14 @@
+description: |
+  List of plans response object example.
+value:
+  count: 0
+  next: ''
+  previous: ''
+  results:
+    - id: 0
+      amount: 0.0
+      currency: ''
+      interval: ''
+      interval_count: 0
+      name: ''
+      trial_period_days: 0

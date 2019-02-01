@@ -1,0 +1,11 @@
+get:
+  security: []
+  tags: []
+  description: |
+    Retrieve the coreapi interactive documentation for the API.
+  operationId: docs_coreapi_get
+  parameters: []
+  responses:
+    '200':
+      description: |
+        OK.

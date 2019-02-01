@@ -1,0 +1,21 @@
+get:
+  tags: []
+  description: |
+    Return all cards for the authenticated user.
+  operationId: user_card_list_get
+  parameters:
+    - $ref: '#/components/parameters/page_q'
+  responses:
+    '200':
+      $ref: '#/components/responses/cards'
+post:
+  tags: []
+  description: |
+    Create a card for the authenticated user.
+  operationId: user_card_list_post
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/card_post'
+  responses:
+    '200':
+      $ref: '#/components/responses/card'

@@ -1,0 +1,22 @@
+get:
+  tags: []
+  description: |
+    Return the specified subscription.
+  operationId: user_subscription_get
+  parameters:
+    - $ref: '#/components/parameters/subscription_id_p'
+  responses:
+    '200':
+      $ref: '#/components/responses/subscription'
+patch:
+  tags: []
+  description: |
+    Update the specified subscription.
+  operationId: user_subscription_patch
+  parameters:
+    - $ref: '#/components/parameters/subscription_id_p'
+  requestBody:
+    $ref: '#/components/requestBodies/subscription_patch'
+  responses:
+    '200':
+      $ref: '#/components/responses/subscription'

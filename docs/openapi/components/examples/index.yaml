@@ -1,0 +1,58 @@
+user:
+  $ref: './user.yaml'
+subscription:
+  $ref: './subscription.yaml'
+card:
+  $ref: './card.yaml'
+registration_info:
+  $ref: './registration_info.yaml'
+password_reset_info:
+  $ref: './password_reset_info.yaml'
+password_change_info:
+  $ref: './password_change_info.yaml'
+password_reset_confirm_info:
+  $ref: './password_reset_confirm_info.yaml'
+email_verification_key:
+  $ref: './email_verification_key.yaml'
+auth_token:
+  $ref: './auth_token.yaml'
+login:
+  $ref: './login.yaml'
+google_oauth:
+  $ref: './google_oauth.yaml'
+logout:
+  $ref: './logout.yaml'
+plan:
+  $ref: './plan.yaml'
+user_patch:
+  $ref: './user_patch.yaml'
+subscription_patch:
+  $ref: './subscription_patch.yaml'
+card_patch:
+  $ref: './card_patch.yaml'
+subscription_post:
+  $ref: './subscription_post.yaml'
+card_post:
+  $ref: './card_post.yaml'
+subscription_cancel:
+  $ref: './subscription_cancel.yaml'
+user_res:
+  $ref: './user_res.yaml'
+subscription_res:
+  $ref: './subscription_res.yaml'
+card_res:
+  $ref: './card_res.yaml'
+login_res:
+  $ref: './login_res.yaml'
+google_oauth_res:
+  $ref: './google_oauth_res.yaml'
+plan_res:
+  $ref: './plan_res.yaml'
+users_res:
+  $ref: './users_res.yaml'
+subscriptions_res:
+  $ref: './subscriptions_res.yaml'
+cards_res:
+  $ref: './cards_res.yaml'
+plans_res:
+  $ref: './plans_res.yaml'

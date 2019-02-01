@@ -1,0 +1,18 @@
+description: |
+  List of users response object example.
+value:
+  count: 0
+  next: ''
+  previous: ''
+  results:
+    - user_id: 0
+      email: ''
+      password: ''
+      first_name: ''
+      last_name: ''
+      profile_picture: ''
+      date_joined: ''
+      is_active: true
+      is_staff: true
+      is_superuser: true
+      last_login: ''

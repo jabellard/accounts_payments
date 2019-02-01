@@ -1,0 +1,9 @@
+title: Login response object.
+description: |
+  Login response object.
+type: object
+properties:
+  key:
+    description: |
+      Token key.
+    type: string

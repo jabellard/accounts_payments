@@ -1,0 +1,8 @@
+description: |
+  Returned User object.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/user_res.yaml'
+    example:
+      $ref: '../examples/user_res.yaml'

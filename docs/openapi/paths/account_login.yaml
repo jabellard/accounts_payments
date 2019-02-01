@@ -1,0 +1,12 @@
+post:
+  security: []
+  tags: []
+  description: |
+    Login with the provided user credentials.
+  operationId: account_login_post
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/login_post'
+  responses:
+    '200':
+      $ref: '#/components/responses/login'

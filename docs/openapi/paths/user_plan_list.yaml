@@ -1,0 +1,10 @@
+get:
+  tags: []
+  description: |
+    Return all available plans.
+  operationId: user_plan_list_get
+  parameters:
+    - $ref: '#/components/parameters/page_q'
+  responses:
+    '200':
+      $ref: '#/components/responses/plans'

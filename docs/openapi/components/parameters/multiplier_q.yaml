@@ -1,0 +1,8 @@
+name: multiplier
+in: query
+required: false
+description: |
+  Multiplier for the period of event occurrences. Defaults to 1.
+schema:
+  type: integer
+style: form

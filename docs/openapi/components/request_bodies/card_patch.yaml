@@ -1,0 +1,9 @@
+description: |
+  The Card object to update.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/card_patch.yaml'
+    example:
+      $ref: '../examples/card_patch.yaml'
+required: true

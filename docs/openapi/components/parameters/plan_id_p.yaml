@@ -1,0 +1,8 @@
+name: plan_id
+in: path
+required: true
+description: |
+  Specifies a Plan object.
+schema:
+  type: integer
+style: simple

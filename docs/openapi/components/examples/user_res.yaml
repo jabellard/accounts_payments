@@ -1,0 +1,14 @@
+description: |
+  User response object example.
+value:
+  user_id: 0
+  email: ''
+  password: ''
+  first_name: ''
+  last_name: ''
+  profile_picture: ''
+  date_joined: ''
+  is_active: true
+  is_staff: true
+  is_superuser: true
+  last_login: ''

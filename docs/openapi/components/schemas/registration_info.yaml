@@ -1,0 +1,22 @@
+title: Registration info object.
+description: |
+  Registration info object.
+type: object
+properties:
+  email:
+    description: |
+      Email.
+    type: string
+    format: email
+  password1:
+    description: |
+      Password.
+    type: string
+  password2:
+    description: |
+      Password confirmation.
+    type: string
+required:
+  - email
+  - password1
+  - password2

@@ -1,0 +1,9 @@
+description: |
+  Finalize the email verification process.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/email_verification_key.yaml'
+    example:
+      $ref: '../examples/email_verification_key.yaml'
+required: true

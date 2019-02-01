@@ -1,0 +1,60 @@
+title: Card response object.
+description: |
+  Card response object.
+type: object
+properties:
+  id:
+    description: |
+      Unique ID. Generated automatically by the database.
+    type: integer
+    format: int64
+  name:
+    description: |
+      See Stripe API docs.
+    type: string
+  address_line_1:
+    description: |
+      See Stripe API docs.
+    type: string
+  address_line_2:
+    description: |
+      See Stripe API docs.
+    type: string
+  address_city:
+    description: |
+      See Stripe API docs.
+    type: string
+  address_state:
+    description: |
+      See Stripe API docs.
+    type: string
+  address_country:
+    description: |
+      See Stripe API docs.
+    type: string
+  address_zip:
+    description: |
+      Plan, by ID. See Stripe API docs.
+    type: string
+  brand:
+    description: |
+      See Stripe API docs.
+    type: string
+  country:
+    description: |
+      See Stripe API docs.
+    type: string
+  exp_month:
+    description: |
+      See Stripe API docs.
+    type: integer
+    format: int64
+  exp_year:
+    description: |
+      See Stripe API docs.
+    type: integer
+    format: int64
+  last4:
+    description: |
+      See Stripe API docs.
+    type: string

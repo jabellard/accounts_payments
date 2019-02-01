@@ -1,0 +1,13 @@
+post:
+  security: []
+  tags: []
+  description: |
+    Register for a new user account.
+  operationId: account_register_post
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/registration_info_post'
+  responses:
+    '200':
+      description: |
+            OK.

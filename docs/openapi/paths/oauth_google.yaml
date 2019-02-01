@@ -1,0 +1,12 @@
+post:
+  security: []
+  tags: []
+  description: |
+    Register or login via Google Oauth
+  operationId: oauth_google_post
+  parameters: []
+  requestBody:
+    $ref: '#/components/requestBodies/google_oauth_post'
+  responses:
+    '200':
+      $ref: '#/components/responses/google_oauth'

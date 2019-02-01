@@ -1,0 +1,5 @@
+title: Logout object.
+description: |
+  Logout object.
+type: object
+properties: {}

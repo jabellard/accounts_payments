@@ -1,0 +1,8 @@
+name: subscription_id
+in: path
+required: true
+description: |
+  Specifies a Subscription object.
+schema:
+  type: integer
+style: simple

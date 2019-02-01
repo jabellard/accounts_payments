@@ -1,0 +1,11 @@
+title: Google oauth object.
+description: |
+  Google oauth object.
+type: object
+properties:
+  access_token:
+    description: |
+      Access token.
+    type: string
+required:
+  - access_token

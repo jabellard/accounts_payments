@@ -1,0 +1,11 @@
+title: Email verification key object.
+description: |
+  Email verification key object.
+type: object
+properties:
+  key:
+    description: |
+      Verification key.
+    type: string
+required:
+  - key

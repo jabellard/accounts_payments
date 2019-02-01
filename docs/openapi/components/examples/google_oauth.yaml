@@ -1,0 +1,4 @@
+description: |
+  Google oauth object example.
+value:
+  access_token: ''

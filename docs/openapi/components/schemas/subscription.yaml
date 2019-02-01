@@ -1,0 +1,68 @@
+title: Subscription object.
+description: |
+  Subscription object.
+type: object
+properties:
+  id:
+    description: |
+      Unique ID. Generated automatically by the database.
+    type: integer
+    format: int64
+  application_fee_percent:
+    description: |
+      See Stripe API docs.
+    type: number
+    format: double
+  cancel_at_period_end:
+    description: |
+      See Stripe API docs.
+    type: boolean
+  canceled_at:
+    description: |
+      See Stripe API docs.
+    type: string
+    format: date-time
+  current_period_end:
+    description: |
+      See Stripe API docs.
+    type: string
+    format: email
+  current_period_start:
+    description: |
+      See Stripe API docs.
+    type: string
+    format: date-time
+  ended_at:
+    description: |
+      See Stripe API docs.
+    type: string
+    format: date-time
+  plan:
+    description: |
+      Plan, by ID. See Stripe API docs.
+    type: integer
+    format: int64
+  quantity:
+    description: |
+      See Stripe API docs.
+    type: integer
+    format: int64
+  start:
+    description: |
+      See Stripe API docs.
+    type: string
+    format: date-time
+  status:
+    description: |
+      See Stripe API docs.
+    type: string
+  trial_end:
+    description: |
+      See Stripe API docs.
+    type: string
+    format: date-time
+  trial_start:
+    description: |
+      See Stripe API docs.
+    type: string
+    format: date-time

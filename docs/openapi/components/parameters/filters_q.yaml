@@ -1,0 +1,8 @@
+name: filters
+in: query
+required: false
+description: |
+  A list of URL-encoded search filters.
+schema:
+  type: string
+style: form

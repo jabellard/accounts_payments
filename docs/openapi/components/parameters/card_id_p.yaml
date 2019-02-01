@@ -1,0 +1,8 @@
+name: card_id
+in: path
+required: true
+description: |
+  Specifies a Card object.
+schema:
+  type: integer
+style: simple

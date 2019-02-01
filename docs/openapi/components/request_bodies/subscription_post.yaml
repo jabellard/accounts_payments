@@ -1,0 +1,9 @@
+description: |
+  Subscription object create request body.
+content:
+  application/json:
+    schema:
+      $ref: '../schemas/subscription_post.yaml'
+    example:
+      $ref: '../examples/subscription_post.yaml'
+required: true

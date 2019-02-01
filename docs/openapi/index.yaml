@@ -1,0 +1,20 @@
+openapi: '3.0.0'
+info:
+  title: textbin API
+  description: textbin API.
+  termsOfService: https://empty.com/terms_of_service
+  contact:
+    name: Joe Nathan Abellard
+  version: '0.0.0'
+servers:
+  - description: |
+      Production server.
+    url: https://empty.com/api/
+paths:
+  $ref: './paths/index.yaml'
+components:
+  $ref: './components/index.yaml'
+security:
+  - token_auth: []
+#tags:
+#externalDocs:

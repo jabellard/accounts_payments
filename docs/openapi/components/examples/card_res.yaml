@@ -1,0 +1,16 @@
+description: |
+  Card response object example.
+value:
+  id: 0
+  name: ''
+  address_line_1: ''
+  address_line_2: ''
+  address_city: ''
+  address_state: ''
+  address_country: ''
+  address_zip: ''
+  brand: ''
+  country: ''
+  exp_month: 0
+  exp_year: 0
+  last4: ''
