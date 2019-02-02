@@ -6,6 +6,7 @@ value:
   previous: ''
   results:
     - user_id: 0
+      username: ''
       email: ''
       password: ''
       first_name: ''

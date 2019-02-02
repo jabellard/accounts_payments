@@ -8,6 +8,10 @@ properties:
       Unique ID. Generated automatically by the database.
     type: integer
     format: int64
+  username:
+    description: |
+      Username.
+    type: string
   email:
     description: |
       Email address.
