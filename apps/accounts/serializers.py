@@ -170,7 +170,7 @@ class SocialConnectSerializer(_SocialConnectSerializer):
 
 
 class RegisterSerializer(_RegisterSerializer):
-    username = None
+    pass
 
 
 class VerifyEmailSerializer(_VerifyEmailSerializer):
