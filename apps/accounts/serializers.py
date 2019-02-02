@@ -28,6 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             'user_id',
+            'username',
             'email',
             'first_name',
             'last_name',
@@ -40,6 +41,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             'user_id',
+            'username',
             'email',
             'date_joined',
             'last_login',
@@ -65,6 +67,8 @@ class UserDestroySerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(_LoginSerializer):
+    email = None
+
     def validate(self, attrs):
         username = attrs.get('username')
         email = attrs.get('email')
