@@ -3,15 +3,14 @@ description: |
   Login object.
 type: object
 properties:
-  email:
+  username:
     description: |
-      Email.
+      Username.
     type: string
-    format: email
   password:
     description: |
       Password.
     type: string
 required:
-  - email
+  - username
   - password

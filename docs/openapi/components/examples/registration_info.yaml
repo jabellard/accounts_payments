@@ -1,6 +1,7 @@
 description: |
   Registration info object example.
 value:
+  username: ''
   email: ''
   password1: ''
   password2: ''

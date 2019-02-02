@@ -323,6 +323,10 @@ components:
             Unique ID. Generated automatically by the database.
           type: integer
           format: int64
+        username:
+          description: |
+            Username.
+          type: string
         email:
           description: |
             Email address.
@@ -369,6 +373,7 @@ components:
           type: string
           format: date-time
       required:
+        - username
         - email
     subscription:
       title: Subscription object.
@@ -506,6 +511,10 @@ components:
         Registration info object.
       type: object
       properties:
+        username:
+          description: |
+            Username.
+          type: string
         email:
           description: |
             Email.
@@ -520,6 +529,7 @@ components:
             Password confirmation.
           type: string
       required:
+        - username
         - email
         - password1
         - password2
@@ -615,17 +625,16 @@ components:
         Login object.
       type: object
       properties:
-        email:
+        username:
           description: |
-            Email.
+            Username.
           type: string
-          format: email
         password:
           description: |
             Password.
           type: string
       required:
-        - email
+        - username
         - password
     google_oauth:
       title: Google oauth object.
@@ -805,6 +814,10 @@ components:
             Unique ID. Generated automatically by the database.
           type: integer
           format: int64
+        username:
+          description: |
+            Username.
+          type: string
         email:
           description: |
             Email address.
@@ -1074,6 +1087,10 @@ components:
                   Unique ID. Generated automatically by the database.
                 type: integer
                 format: int64
+              username:
+                description: |
+                  Username.
+                type: string
               email:
                 description: |
                   Email address.
@@ -1120,6 +1137,7 @@ components:
                 type: string
                 format: date-time
             required:
+              - username
               - email
     subscriptions_res:
       title: List of subscriptions response object.
@@ -1381,6 +1399,10 @@ components:
                   Unique ID. Generated automatically by the database.
                 type: integer
                 format: int64
+              username:
+                description: |
+                  Username.
+                type: string
               email:
                 description: |
                   Email address.
@@ -1431,6 +1453,7 @@ components:
               User response object example.
             value:
               user_id: 0
+              username: ''
               email: ''
               password: ''
               first_name: ''
@@ -2104,6 +2127,7 @@ components:
         User object example.
       value:
         user_id: 0
+        username: ''
         email: ''
         password: ''
         first_name: ''
@@ -2152,6 +2176,7 @@ components:
       description: |
         Registration info object example.
       value:
+        username: ''
         email: ''
         password1: ''
         password2: ''
@@ -2189,7 +2214,7 @@ components:
       description: |
         Login object example.
       value:
-        email: ''
+        username: ''
         password: ''
     google_oauth:
       description: |
@@ -2256,6 +2281,7 @@ components:
         User response object example.
       value:
         user_id: 0
+        username: ''
         email: ''
         password: ''
         first_name: ''
@@ -2330,6 +2356,7 @@ components:
         previous: ''
         results:
           - user_id: 0
+            username: ''
             email: ''
             password: ''
             first_name: ''
@@ -2432,23 +2459,22 @@ components:
               Login object.
             type: object
             properties:
-              email:
+              username:
                 description: |
-                  Email.
+                  Username.
                 type: string
-                format: email
               password:
                 description: |
                   Password.
                 type: string
             required:
-              - email
+              - username
               - password
           example:
             description: |
               Login object example.
             value:
-              email: ''
+              username: ''
               password: ''
       required: true
     google_oauth_post:
@@ -2501,6 +2527,10 @@ components:
               Registration info object.
             type: object
             properties:
+              username:
+                description: |
+                  Username.
+                type: string
               email:
                 description: |
                   Email.
@@ -2515,6 +2545,7 @@ components:
                   Password confirmation.
                 type: string
             required:
+              - username
               - email
               - password1
               - password2
@@ -2522,6 +2553,7 @@ components:
             description: |
               Registration info object example.
             value:
+              username: ''
               email: ''
               password1: ''
               password2: ''

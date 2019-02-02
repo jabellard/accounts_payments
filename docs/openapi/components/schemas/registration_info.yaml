@@ -3,6 +3,10 @@ description: |
   Registration info object.
 type: object
 properties:
+  username:
+    description: |
+      Username.
+    type: string
   email:
     description: |
       Email.
@@ -17,6 +21,7 @@ properties:
       Password confirmation.
     type: string
 required:
+  - username
   - email
   - password1
   - password2
