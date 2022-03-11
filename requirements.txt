@@ -39,7 +39,7 @@ MarkupSafe==1.0
 oauthlib==2.1.0
 pathspec==0.5.5
 phonenumbers==8.10.1
-Pillow==5.3.0
+Pillow==9.0.1
 pinax-eventlog==2.0.3
 pinax-stripe==4.4.0
 psycopg2==2.7.6.1
